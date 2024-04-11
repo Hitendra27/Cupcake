@@ -28,6 +28,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NavHost
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -35,6 +36,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -99,7 +101,6 @@ fun CupcakeApp(
         NavHost(
             navController = navController,
             startDestination = CupcakeScreen.Start.name,
-            builder = {},
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(route = CupcakeScreen.Start.name) {
@@ -109,7 +110,7 @@ fun CupcakeApp(
                         .fillMaxSize()
                         .padding(dimensionResource(R.dimen.padding_medium))
                 )
-            },
+            }
             composable(route = CupcakeScreen.Flavor.name) {
                 val context = LocalContext.current
                 SelectOptionScreen(
